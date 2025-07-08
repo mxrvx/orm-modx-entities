@@ -41,4 +41,4 @@ if (!isset($modx)) {
 }
 
 /** @var \DI\Container $container */
-$container = \MXRVX\Autoloader\App::getInstance($modx)->getContainer();
+$container = $container ?? \MXRVX\Autoloader\App::container();
