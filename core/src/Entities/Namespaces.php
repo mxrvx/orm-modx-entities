@@ -31,7 +31,7 @@ class Namespaces extends AccessibleObject
      *
      * @var null|SystemSetting[]
      */
-    #[HasMany(target: SystemSetting::class, innerKey: 'name', outerKey: 'namespace', fkCreate: false, indexCreate: false)]
+    #[HasMany(target: SystemSetting::class, innerKey: 'name', outerKey: 'namespace', nullable: true, fkCreate: false, indexCreate: false)]
     public ?array $SystemSettings = null;
 }
 
