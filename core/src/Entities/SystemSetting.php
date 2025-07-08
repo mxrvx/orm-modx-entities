@@ -34,7 +34,10 @@ class SystemSetting extends XObject
     public ?string $editedon = null;
 
     /**
+     * <code>
      * <aggregate alias="Namespace" class="modNamespace" local="namespace" foreign="name" cardinality="one" owner="foreign" />
+     * </code>
+     *
      */
     #[BelongsTo(target: Namespaces::class, innerKey: 'namespace', outerKey: 'name', nullable: true, fkCreate: false, indexCreate: false)]
     public ?Namespaces $Namespace = null;

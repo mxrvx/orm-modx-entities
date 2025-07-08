@@ -93,7 +93,10 @@ class UserProfile extends XSimpleObject
     public ?array $extended = null;
 
     /**
+     * <code>
      * <aggregate alias="User" class="modUser" local="internalKey" foreign="id" cardinality="one" owner="foreign" />
+     * </code>
+     *
      */
     #[BelongsTo(target: User::class, innerKey: 'internalKey', outerKey: 'id', nullable: true, fkCreate: false, indexCreate: false)]
     public ?User $User = null;

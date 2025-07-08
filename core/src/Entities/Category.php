@@ -30,13 +30,20 @@ class Category extends AccessibleSimpleObject
     public int $rank = 0;
 
     /**
+     * <code>
      * <composite alias="Children" class="modCategory" local="id" foreign="parent" cardinality="many" owner="local" />
+     * </code>
+     *
+     * @var null|Category[]
      */
     #[HasMany(target: Category::class, innerKey: 'id', outerKey: 'parent', fkCreate: false, indexCreate: false)]
     public ?array $Childrens = null;
 
     /**
+     * <code>
      * <aggregate alias="Parent" class="modCategory" local="parent" foreign="id" cardinality="one" owner="foreign" />
+     * </code>
+     *
      */
     #[BelongsTo(target: Category::class, innerKey: 'parent', outerKey: 'id', nullable: true, fkCreate: false, indexCreate: false, )]
     public ?Category $Parent = null;

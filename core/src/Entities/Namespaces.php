@@ -25,7 +25,11 @@ class Namespaces extends AccessibleObject
     public ?string $assets_path = null;
 
     /**
+     * <code>
      * <composite alias="SystemSettings" class="modSystemSetting" local="name" foreign="namespace" cardinality="many" owner="local" />
+     * </code>
+     *
+     * @var null|SystemSetting[]
      */
     #[HasMany(target: SystemSetting::class, innerKey: 'name', outerKey: 'namespace', fkCreate: false, indexCreate: false)]
     public ?array $SystemSettings = null;

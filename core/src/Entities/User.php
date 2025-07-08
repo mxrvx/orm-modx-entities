@@ -60,7 +60,10 @@ class User extends Principal
     public int $createdon = 0;
 
     /**
+     * <code>
      * <composite alias="Profile" class="modUserProfile" local="id" foreign="internalKey" cardinality="one" owner="local" />
+     * </code>
+     *
      */
     #[HasOne(target: UserProfile::class, innerKey: 'id', outerKey: 'internalKey', nullable: true, fkCreate: false, indexCreate: false)]
     public ?UserProfile $Profile = null;
