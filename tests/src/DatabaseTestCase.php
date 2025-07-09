@@ -77,12 +77,13 @@ abstract class DatabaseTestCase extends TestCase
      */
     protected function tearDown(): void
     {
-        parent::tearDown();
-
         $this->disableProfiling();
         $this->runDownMigrations();
         $this->cleanUpAfterMigrator();
+        $this->getDatabase()->getDriver()->disconnect();
 
         \Cycle\ActiveRecord\Facade::reset();
+
+        parent::tearDown();
     }
 }
