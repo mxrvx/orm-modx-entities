@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace MXRVX\ORM\MODX\Entities;
 
-;
-
 use Cycle\Annotated\Annotation\Column;
 use Cycle\Annotated\Annotation\Entity;
 use Cycle\Annotated\Annotation\Relation\BelongsTo;
