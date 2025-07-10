@@ -23,10 +23,10 @@ use Cycle\Annotated\Annotation\Table\Index;
 #[Index(columns: ['rank'], name: 'rank')]
 class Category extends AccessibleSimpleObject
 {
-    #[Column(type: 'int', unsigned: true, typecast: 'int')]
+    #[Column(type: 'int', typecast: 'int', unsigned: true)]
     public int $parent;
 
-    #[Column(type: 'string(45)', typecast: 'string', default: '')]
+    #[Column(type: 'string(45)', default: '', typecast: 'string')]
     public string $category = '';
 
     #[Column(type: 'integer(11)', default: 0, typecast: 'int')]

@@ -18,22 +18,22 @@ use Cycle\Annotated\Annotation\Relation\BelongsTo;
 )]
 class SystemSetting extends XObject
 {
-    #[Column(type: 'string(50)', primary: true, typecast: 'string', default: '')]
+    #[Column(type: 'string(50)', primary: true, default: '', typecast: 'string')]
     public string $key;
 
     #[Column(type: 'text', typecast: 'string')]
     public string $value = '';
 
-    #[Column(type: 'string(75)', typecast: 'string', default: 'textfield')]
+    #[Column(type: 'string(75)', default: 'textfield', typecast: 'string')]
     public string $xtype = 'textfield';
 
-    #[Column(type: 'string(40)', typecast: 'string', default: 'core')]
+    #[Column(type: 'string(40)', default: 'core', typecast: 'string')]
     public string $namespace = 'core';
 
-    #[Column(type: 'string(191)', typecast: 'string', default: '')]
+    #[Column(type: 'string(191)', default: '', typecast: 'string')]
     public string $area = '';
 
-    #[Column(type: 'timestamp', typecast: 'timestamp', nullable: true)]
+    #[Column(type: 'timestamp', nullable: true, typecast: 'timestamp')]
     public ?string $editedon = null;
 
     /**

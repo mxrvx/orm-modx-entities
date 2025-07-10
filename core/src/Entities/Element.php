@@ -13,10 +13,10 @@ use Cycle\Annotated\Annotation\Relation\BelongsTo;
  */
 abstract class Element extends AccessibleSimpleObject
 {
-    #[Column(type: 'int', unsigned: true, typecast: 'int')]
+    #[Column(type: 'int', typecast: 'int', unsigned: true)]
     public int $source = 0;
 
-    #[Column(type: 'boolean', typecast: 'bool', default: false)]
+    #[Column(type: 'boolean', default: false, typecast: 'bool')]
     public bool $property_preprocess = false;
 
     /**

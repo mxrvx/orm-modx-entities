@@ -23,26 +23,26 @@ use MXRVX\ORM\Typecast;
 #[Index(columns: ['static'], name: 'static')]
 class Snippet extends Script
 {
-    #[Column(type: 'boolean', typecast: 'bool', default: false)]
+    #[Column(type: 'boolean', default: false, typecast: 'bool')]
     public bool $cache_type = false;
 
-    #[Column(type: 'mediumText', typecast: 'string', nullable: true)]
+    #[Column(type: 'mediumText', nullable: true, typecast: 'string')]
     public ?string $snippet = null;
 
-    #[Column(type: 'boolean', typecast: 'bool', default: false)]
+    #[Column(type: 'boolean', default: false, typecast: 'bool')]
     public bool $locked = false;
 
     #[Column(type: 'text', nullable: true)]
     #[Typecast\Types\Array\ArrayToSerializedString]
     public ?array $properties = null;
 
-    #[Column(type: 'string(32)', typecast: 'string', default: '')]
+    #[Column(type: 'string(32)', default: '', typecast: 'string')]
     public string $moduleguid = '';
 
-    #[Column(type: 'boolean', typecast: 'bool', default: false)]
+    #[Column(type: 'boolean', default: false, typecast: 'bool')]
     public bool $static = false;
 
-    #[Column(type: 'string(191)', typecast: 'string', default: '')]
+    #[Column(type: 'string(191)', default: '', typecast: 'string')]
     public string $static_file = '';
 }
 

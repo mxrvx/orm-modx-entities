@@ -20,70 +20,70 @@ use Cycle\Annotated\Annotation\Table\Index;
 #[Index(columns: ['internalKey'], name: 'internalKey', unique: true)]
 class UserProfile extends XSimpleObject
 {
-    #[Column(type: 'int(10)', typecast: 'int', name: 'internalKey')]
+    #[Column(type: 'int(10)', name: 'internalKey', typecast: 'int')]
     public ?int $internalKey = null;
 
-    #[Column(type: 'string(100)', typecast: 'string', default: '')]
+    #[Column(type: 'string(100)', default: '', typecast: 'string')]
     public ?string $fullname = null;
 
-    #[Column(type: 'string(100)', typecast: 'string', default: '')]
+    #[Column(type: 'string(100)', default: '', typecast: 'string')]
     public ?string $email = null;
 
-    #[Column(type: 'string(100)', typecast: 'string', default: '')]
+    #[Column(type: 'string(100)', default: '', typecast: 'string')]
     public string $phone = '';
 
-    #[Column(type: 'string(100)', typecast: 'string', default: '')]
+    #[Column(type: 'string(100)', default: '', typecast: 'string')]
     public string $mobilephone = '';
 
-    #[Column(type: 'boolean', typecast: 'bool', default: false)]
+    #[Column(type: 'boolean', default: false, typecast: 'bool')]
     public bool $blocked = false;
 
-    #[Column(type: 'int(11)', typecast: 'int', default: 0)]
+    #[Column(type: 'int(11)', default: 0, typecast: 'int')]
     public int $blockeduntil = 0;
 
-    #[Column(type: 'int(11)', typecast: 'int', default: 0)]
+    #[Column(type: 'int(11)', default: 0, typecast: 'int')]
     public int $blockedafter = 0;
 
-    #[Column(type: 'int(11)', typecast: 'int', default: 0)]
+    #[Column(type: 'int(11)', default: 0, typecast: 'int')]
     public int $logincount = 0;
 
-    #[Column(type: 'int(11)', typecast: 'int', default: 0)]
+    #[Column(type: 'int(11)', default: 0, typecast: 'int')]
     public int $lastlogin = 0;
 
-    #[Column(type: 'int(11)', typecast: 'int', default: 0)]
+    #[Column(type: 'int(11)', default: 0, typecast: 'int')]
     public int $thislogin = 0;
 
-    #[Column(type: 'int(10)', typecast: 'int', default: 0)]
+    #[Column(type: 'int(10)', default: 0, typecast: 'int')]
     public int $failedlogincount = 0;
 
-    #[Column(type: 'string(100)', typecast: 'string', default: '')]
+    #[Column(type: 'string(100)', default: '', typecast: 'string')]
     public string $sessionid = '';
 
-    #[Column(type: 'int(10)', typecast: 'int', default: 0)]
+    #[Column(type: 'int(10)', default: 0, typecast: 'int')]
     public int $dob = 0;
 
-    #[Column(type: 'int(1)', typecast: 'int', default: 0)]
+    #[Column(type: 'int(1)', default: 0, typecast: 'int')]
     public int $gender = 0;
 
     #[Column(type: 'text', typecast: 'string')]
     public string $address = '';
 
-    #[Column(type: 'string(191)', typecast: 'string', default: '')]
+    #[Column(type: 'string(191)', default: '', typecast: 'string')]
     public string $country = '';
 
-    #[Column(type: 'string(191)', typecast: 'string', default: '')]
+    #[Column(type: 'string(191)', default: '', typecast: 'string')]
     public string $city = '';
 
-    #[Column(type: 'string(25)', typecast: 'string', default: '')]
+    #[Column(type: 'string(25)', default: '', typecast: 'string')]
     public string $state = '';
 
-    #[Column(type: 'string(25)', typecast: 'string', default: '')]
+    #[Column(type: 'string(25)', default: '', typecast: 'string')]
     public string $zip = '';
 
-    #[Column(type: 'string(100)', typecast: 'string', default: '')]
+    #[Column(type: 'string(100)', default: '', typecast: 'string')]
     public string $fax = '';
 
-    #[Column(type: 'string(191)', typecast: 'string', default: '')]
+    #[Column(type: 'string(191)', default: '', typecast: 'string')]
     public string $photo = '';
 
     #[Column(type: 'text', typecast: 'string')]
@@ -92,7 +92,7 @@ class UserProfile extends XSimpleObject
     #[Column(type: 'string(191)', default: '', typecast: 'string')]
     public string $website = '';
 
-    #[Column(type: 'text', typecast: 'json', nullable: true)]
+    #[Column(type: 'text', nullable: true, typecast: 'json')]
     public ?array $extended = null;
 
     /**

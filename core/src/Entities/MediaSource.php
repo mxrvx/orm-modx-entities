@@ -25,20 +25,20 @@ use MXRVX\ORM\Typecast;
 #[Index(columns: ['is_stream'], name: 'is_stream')]
 class MediaSource extends AccessibleSimpleObject
 {
-    #[Column(type: 'string(191)', typecast: 'string', nullable: false)]
+    #[Column(type: 'string(191)', nullable: false, typecast: 'string')]
     public string $name;
 
-    #[Column(type: 'text', typecast: 'string', nullable: true)]
+    #[Column(type: 'text', nullable: true, typecast: 'string')]
     public ?string $description = null;
 
-    #[Column(type: 'string(100)', typecast: 'string', nullable: false, default: 'sources.modFileMediaSource')]
+    #[Column(type: 'string(100)', nullable: false, default: 'sources.modFileMediaSource', typecast: 'string')]
     public string $class_key = 'sources.modFileMediaSource';
 
     #[Column(type: 'mediumText', nullable: true)]
     #[Typecast\Types\Array\ArrayToSerializedString]
     public ?array $properties = null;
 
-    #[Column(type: 'boolean', typecast: 'bool', default: true)]
+    #[Column(type: 'boolean', default: true, typecast: 'bool')]
     public bool $is_stream;
 
     /**

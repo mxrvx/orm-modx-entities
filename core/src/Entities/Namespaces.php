@@ -21,10 +21,10 @@ class Namespaces extends AccessibleObject
     #[Column(type: 'string(40)', primary: true, typecast: 'string')]
     public string $name;
 
-    #[Column(type: 'text', typecast: 'string', nullable: true)]
+    #[Column(type: 'text', nullable: true, typecast: 'string')]
     public ?string $path = null;
 
-    #[Column(type: 'text', typecast: 'string', nullable: true)]
+    #[Column(type: 'text', nullable: true, typecast: 'string')]
     public ?string $assets_path = null;
 
     /**

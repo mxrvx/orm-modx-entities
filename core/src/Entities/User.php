@@ -37,19 +37,19 @@ class User extends Principal
     #[Column(type: 'string(100)', default: 'modUser', typecast: 'string')]
     public string $class_key = 'modUser';
 
-    #[Column(type: 'boolean', typecast: 'bool', default: true)]
+    #[Column(type: 'boolean', default: true, typecast: 'bool')]
     public bool $active = true;
 
-    #[Column(type: 'string(191)', typecast: 'string', nullable: true)]
+    #[Column(type: 'string(191)', nullable: true, typecast: 'string')]
     public ?string $remote_key = null;
 
-    #[Column(type: 'text', typecast: 'array', nullable: true)]
+    #[Column(type: 'text', nullable: true, typecast: 'array')]
     public ?array $remote_data = null;
 
-    #[Column(type: 'string(100)', typecast: 'string', default: 'hashing.modNative')]
+    #[Column(type: 'string(100)', default: 'hashing.modNative', typecast: 'string')]
     public string $hash_class = 'hashing.modNative';
 
-    #[Column(type: 'string(100)', typecast: 'string', default: '')]
+    #[Column(type: 'string(100)', default: '', typecast: 'string')]
     public string $salt = '';
 
     #[Column(type: 'int(10)', typecast: 'int', unsigned: true)]
@@ -59,10 +59,10 @@ class User extends Principal
     #[Typecast\Types\Array\ArrayToSerializedString]
     public ?array $session_stale = null;
 
-    #[Column(type: 'boolean', typecast: 'bool', default: false)]
+    #[Column(type: 'boolean', default: false, typecast: 'bool')]
     public bool $sudo = false;
 
-    #[Column(type: 'int(20)', typecast: 'timestamp', default: 0)]
+    #[Column(type: 'int(20)', default: 0, typecast: 'timestamp')]
     public int $createdon = 0;
 
     /**

@@ -19,13 +19,13 @@ abstract class Script extends Element
     #[Column(type: 'string(50)', typecast: 'string')]
     public string $name;
 
-    #[Column(type: 'string(191)', typecast: 'string', default: '')]
+    #[Column(type: 'string(191)', default: '', typecast: 'string')]
     public string $description = '';
 
-    #[Column(type: 'int', typecast: 'int', default: 0)]
+    #[Column(type: 'int', default: 0, typecast: 'int')]
     public int $editor_type = 0;
 
-    #[Column(type: 'int', typecast: 'int', default: 0)]
+    #[Column(type: 'int', default: 0, typecast: 'int')]
     public int $category = 0;
 
     /**
