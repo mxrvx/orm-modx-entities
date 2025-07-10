@@ -21,5 +21,6 @@ final class UserTest extends CrudTestCase
     protected static array $data = [
         'id' => 1,
         'username' => 'username',
+        'session_stale' => [['key' => 'value']],
     ];
 }

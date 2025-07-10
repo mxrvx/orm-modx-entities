@@ -12,7 +12,10 @@ use Cycle\Annotated\Annotation\Relation\BelongsTo;
  * @psalm-suppress MissingConstructor
  * @psalm-suppress PropertyNotSetInConstructor
  */
-#[Entity(role: 'modx:SystemSetting', table: 'system_settings')]
+#[Entity(
+    role: 'modx:SystemSetting',
+    table: 'system_settings',
+)]
 class SystemSetting extends XObject
 {
     #[Column(type: 'string(50)', primary: true, typecast: 'string', default: '')]

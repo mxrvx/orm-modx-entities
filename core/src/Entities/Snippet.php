@@ -7,12 +7,17 @@ namespace MXRVX\ORM\MODX\Entities;
 use Cycle\Annotated\Annotation\Column;
 use Cycle\Annotated\Annotation\Entity;
 use Cycle\Annotated\Annotation\Table\Index;
+use MXRVX\ORM\Typecast;
 
 /**
  * @psalm-suppress MissingConstructor
  * @psalm-suppress PropertyNotSetInConstructor
  */
-#[Entity(role: 'modx:Snippet', table: 'site_snippets')]
+#[Entity(
+    role: 'modx:Snippet',
+    table: 'site_snippets',
+    typecast: [\Cycle\ORM\Parser\Typecast::class, Typecast\TypecastHandler::class],
+)]
 #[Index(columns: ['locked'], name: 'locked')]
 #[Index(columns: ['moduleguid'], name: 'moduleguid')]
 #[Index(columns: ['static'], name: 'static')]
@@ -27,7 +32,8 @@ class Snippet extends Script
     #[Column(type: 'boolean', typecast: 'bool', default: false)]
     public bool $locked = false;
 
-    #[Column(type: 'text', typecast: 'json', nullable: true)]
+    #[Column(type: 'text', nullable: true)]
+    #[Typecast\Types\Array\ArrayToSerializedString]
     public ?array $properties = null;
 
     #[Column(type: 'string(32)', typecast: 'string', default: '')]

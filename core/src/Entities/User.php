@@ -8,12 +8,17 @@ use Cycle\Annotated\Annotation\Column;
 use Cycle\Annotated\Annotation\Entity;
 use Cycle\Annotated\Annotation\Relation\HasOne;
 use Cycle\Annotated\Annotation\Table\Index;
+use MXRVX\ORM\Typecast;
 
 /**
  * @psalm-suppress MissingConstructor
  * @psalm-suppress PropertyNotSetInConstructor
  */
-#[Entity(role: 'modx:User', table: 'users')]
+#[Entity(
+    role: 'modx:User',
+    table: 'users',
+    typecast: [\Cycle\ORM\Parser\Typecast::class, Typecast\TypecastHandler::class],
+)]
 #[Index(columns: ['username'], name: 'username', unique: true)]
 #[Index(columns: ['class_key'], name: 'class_key')]
 #[Index(columns: ['remote_key'], name: 'remote_key')]
@@ -50,7 +55,8 @@ class User extends Principal
     #[Column(type: 'int(10)', typecast: 'int', unsigned: true)]
     public int $primary_group = 0;
 
-    #[Column(type: 'text', typecast: 'array', nullable: true)]
+    #[Column(type: 'text', nullable: true)]
+    #[Typecast\Types\Array\ArrayToSerializedString]
     public ?array $session_stale = null;
 
     #[Column(type: 'boolean', typecast: 'bool', default: false)]

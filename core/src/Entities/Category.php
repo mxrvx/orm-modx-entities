@@ -14,7 +14,10 @@ use Cycle\Annotated\Annotation\Table\Index;
  * @psalm-suppress MissingConstructor
  * @psalm-suppress PropertyNotSetInConstructor
  */
-#[Entity(role: 'modx:Category', table: 'categories')]
+#[Entity(
+    role: 'modx:Category',
+    table: 'categories',
+)]
 #[Index(columns: ['parent'], name: 'parent')]
 #[Index(columns: ['parent', 'category'], unique: true, name: 'category')]
 #[Index(columns: ['rank'], name: 'rank')]

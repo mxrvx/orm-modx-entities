@@ -26,5 +26,6 @@ final class SnippetTest extends CrudTestCase
         'static_file' => 'core/components/component/elements/file.php',
         'category' => 1,
         'snippet' => '@code snippet',
+        'properties' => [['key' => 'value']],
     ];
 }

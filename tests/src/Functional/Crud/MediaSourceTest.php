@@ -21,5 +21,6 @@ final class MediaSourceTest extends CrudTestCase
     protected static array $data = [
         'id' => 1,
         'name' => 'name',
+        'properties' => [['key' => 'value']],
     ];
 }

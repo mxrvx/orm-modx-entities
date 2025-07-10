@@ -13,7 +13,10 @@ use Cycle\Annotated\Annotation\Table\Index;
  * @psalm-suppress MissingConstructor
  * @psalm-suppress PropertyNotSetInConstructor
  */
-#[Entity(role: 'modx:UserProfile', table: 'user_attributes')]
+#[Entity(
+    role: 'modx:UserProfile',
+    table: 'user_attributes',
+)]
 #[Index(columns: ['internalKey'], name: 'internalKey', unique: true)]
 class UserProfile extends XSimpleObject
 {

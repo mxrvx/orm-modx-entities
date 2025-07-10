@@ -12,7 +12,10 @@ use Cycle\Annotated\Annotation\Relation\HasMany;
  * @psalm-suppress MissingConstructor
  * @psalm-suppress PropertyNotSetInConstructor
  */
-#[Entity(role: 'modx:Namespace', table: 'namespaces')]
+#[Entity(
+    role: 'modx:Namespace',
+    table: 'namespaces',
+)]
 class Namespaces extends AccessibleObject
 {
     #[Column(type: 'string(40)', primary: true, typecast: 'string')]
