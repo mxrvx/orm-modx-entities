@@ -21,5 +21,7 @@ final class ResourceTest extends CrudTestCase
     protected static array $data = [
         'id' => 1,
         'pagetitle' => 'pagetitle',
+        'parent' => 0,
+        'context_key' => 'context_key',
     ];
 }

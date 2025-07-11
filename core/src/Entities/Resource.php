@@ -6,6 +6,8 @@ namespace MXRVX\ORM\MODX\Entities;
 
 use Cycle\Annotated\Annotation\Column;
 use Cycle\Annotated\Annotation\Entity;
+use Cycle\Annotated\Annotation\Relation\BelongsTo;
+use Cycle\Annotated\Annotation\Relation\HasMany;
 use Cycle\Annotated\Annotation\Table\Index;
 
 /**
@@ -48,7 +50,7 @@ class Resource extends AccessibleSimpleObject
     #[Column(type: 'string(191)', default: '', typecast: 'string')]
     public string $longtitle = '';
 
-    #[Column(type: 'text', nullable: true, typecast: 'string')]
+    #[Column(type: 'text', typecast: 'string')]
     public ?string $description = '';
 
     #[Column(type: 'string(191)', nullable: true, default: '', typecast: 'string')]
@@ -150,7 +152,7 @@ class Resource extends AccessibleSimpleObject
     #[Column(type: 'int(11)', default: 1, typecast: 'int', unsigned: true)]
     public int $content_type = 1;
 
-    #[Column(type: 'string(191)', nullable: true, typecast: 'string')]
+    #[Column(type: 'text', nullable: true, typecast: 'string')]
     public ?string $uri = null;
 
     #[Column(type: 'boolean', default: false, typecast: 'bool')]
@@ -165,7 +167,33 @@ class Resource extends AccessibleSimpleObject
     #[Column(type: 'mediumText', nullable: true, typecast: 'json')]
     public ?array $properties = null;
 
-    //TODO
+    /**
+     * <code>
+     * <aggregate alias="Parent" class="modResource" local="parent" foreign="id" cardinality="one" owner="foreign" />
+     * </code>
+     *
+     */
+    #[BelongsTo(target: Resource::class, innerKey: 'parent', outerKey: 'id', nullable: true, fkCreate: false, indexCreate: false, )]
+    public ?Resource $Parent = null;
+
+    /**
+     * <code>
+     * <composite alias="Children" class="modResource" local="id" foreign="parent" cardinality="many" owner="local" />
+     * </code>
+     *
+     * @var null|Resource[]
+     */
+    #[HasMany(target: Resource::class, innerKey: 'id', outerKey: 'parent', fkCreate: false, indexCreate: false)]
+    public ?array $Childrens = null;
+
+    /**
+     * <code>
+     * <aggregate alias="Context" class="modContext" local="context_key" foreign="key" owner="foreign" cardinality="one" />
+     * </code>
+     *
+     */
+    #[BelongsTo(target: Context::class, innerKey: 'context_key', outerKey: 'key', nullable: true, fkCreate: false, indexCreate: false, )]
+    public ?Context $Context = null;
 }
 
 /**
