@@ -50,6 +50,16 @@ class Category extends AccessibleSimpleObject
      */
     #[BelongsTo(target: Category::class, innerKey: 'parent', outerKey: 'id', nullable: true, fkCreate: false, indexCreate: false, )]
     public ?Category $Parent = null;
+
+    /**
+     * <code>
+     * <aggregate alias="Snippets" class="modSnippet" local="id" foreign="category" cardinality="many" owner="local" />
+     * </code>
+     *
+     * @var null|Snippet[]
+     */
+    #[HasMany(target: Snippet::class, innerKey: 'id', outerKey: 'category', fkCreate: false, indexCreate: false)]
+    public ?array $Snippets = null;
 }
 
 /**
