@@ -13,7 +13,7 @@ use Cycle\Annotated\Annotation\Column;
 abstract class XSimpleObject extends XObject
 {
     #[Column(type: 'primary', typecast: 'int', unsigned: true)]
-    public int $id;
+    public ?int $id;
 }
 
 /**

@@ -19,7 +19,7 @@ use Cycle\Annotated\Annotation\Relation\HasMany;
 class Namespaces extends AccessibleObject
 {
     #[Column(type: 'string(40)', primary: true, typecast: 'string')]
-    public string $name;
+    public ?string $name;
 
     #[Column(type: 'text', nullable: true, typecast: 'string')]
     public ?string $path = null;
