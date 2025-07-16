@@ -19,10 +19,10 @@ use Cycle\Annotated\Annotation\Relation\BelongsTo;
 class ContextSetting extends XObject
 {
     #[Column(type: 'string(191)', primary: true, typecast: 'string')]
-    public ?string $context_key;
+    public string $context_key;
 
     #[Column(type: 'string(50)', primary: true, typecast: 'string')]
-    public ?string $key;
+    public string $key;
 
     #[Column(type: 'mediumtext', nullable: true, typecast: 'string')]
     public ?string $value = null;

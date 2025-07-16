@@ -9,7 +9,7 @@ use Cycle\Annotated\Annotation\Column;
 abstract class AccessibleSimpleObject extends AccessibleObject
 {
     #[Column(type: 'primary', typecast: 'int', unsigned: true)]
-    public ?int $id;
+    public int $id;
 }
 
 /**

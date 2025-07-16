@@ -21,7 +21,7 @@ use Cycle\Annotated\Annotation\Table\Index;
 class Context extends AccessibleObject
 {
     #[Column(type: 'string(100)', primary: true, typecast: 'string')]
-    public ?string $key;
+    public string $key;
 
     #[Column(type: 'string(191)', nullable: true, typecast: 'string')]
     public ?string $name = null;

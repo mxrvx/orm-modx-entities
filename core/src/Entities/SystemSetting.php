@@ -19,7 +19,7 @@ use Cycle\Annotated\Annotation\Relation\BelongsTo;
 class SystemSetting extends XObject
 {
     #[Column(type: 'string(50)', primary: true, default: '', typecast: 'string')]
-    public ?string $key;
+    public string $key;
 
     #[Column(type: 'text', typecast: 'string')]
     public string $value = '';
